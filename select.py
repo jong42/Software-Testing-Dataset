@@ -30,12 +30,6 @@ def get_affected_files(filename:str, dependency_graph: Dict) -> List[str]:
     return dependent_files
 
 
-
-# with git show --stat <commit> I can get a list of files that were changed by a given commit
-# in the dependency graph I can look up all the affected files with the "imported by" key
-# I assume that test files are named exactly the same as the files they are tested. So when I know the files that are
-# affected, I also know the test files that have to be selected
-
 if __name__ == '__main__':
     path = "/home/jonas/Desktop/pydeps_local/pydeps_local"
     outpath = "output.json"
