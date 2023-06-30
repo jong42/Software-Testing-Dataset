@@ -1,6 +1,7 @@
 import re
 import json
 from select import create_dependency_graph, get_affected_files
+from prioritize_random import prioritize_random
 
 codebase_path = "/home/jonas/Desktop/pydeps_local"
 commit_path = "commit.txt"
@@ -28,3 +29,5 @@ for filename in filenames:
     affected_files = get_affected_files(filename, dependency_graph)
     selected_tests.append(affected_files)  # Assumption: Test files have same names as the codebase files
     selected_tests = list(set(selected_tests))  # to remove duplicate entries
+
+ranked_tests = prioritize_random(selected_tests)
