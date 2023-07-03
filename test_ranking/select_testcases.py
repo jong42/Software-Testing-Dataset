@@ -1,5 +1,6 @@
+import subprocess
 from typing import Dict, List
-from pydeps.pydeps import call_pydeps
+#from pydeps.pydeps import call_pydeps
 
 
 def create_dependency_graph(inpath:str, outpath:str) -> None:
@@ -9,7 +10,8 @@ def create_dependency_graph(inpath:str, outpath:str) -> None:
     :param outpath: string. The location where the output file should be written to
     :return:
     """
-    call_pydeps(inpath, show_deps=True, no_output=True, deps_out=outpath, )
+    #call_pydeps(inpath, show_deps=True, no_output=True, deps_out=outpath, )
+    subprocess.run(['pydeps', '--show_deps', '--no-output', '--deps-out ' + outpath])
 
 
 def get_affected_files(filename:str, dependency_graph: Dict) -> List[str]:
@@ -35,3 +37,4 @@ if __name__ == '__main__':
     path = "/home/jonas/Desktop/pydeps_local/pydeps_local"
     outpath = "output.json"
     create_dependency_graph(path, outpath)
+
