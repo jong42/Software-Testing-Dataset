@@ -8,4 +8,4 @@ def test_prioritize_random():
     assert len(Y) == len(Y_ranked)
     for y in Y:
         assert y in Y_ranked
-        
+
