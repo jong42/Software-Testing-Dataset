@@ -24,8 +24,9 @@ def get_affected_files(filename:str, dependency_graph: Dict) -> List[str]:
 
     def recursive_search(node: str) -> None:
         dependent_files.append(node)
-        for name in dependency_graph[node]['imported_by']:
-            recursive_search(name)
+        if 'imported_by' in dependency_graph[node].keys():
+            for name in dependency_graph[node]['imported_by']:
+                recursive_search(name)
     recursive_search(filename)
     return dependent_files
 

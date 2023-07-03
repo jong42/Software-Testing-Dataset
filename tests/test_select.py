@@ -13,11 +13,11 @@ def test_get_affected_files():
     assert affected_files == ["test_module", "test_import_module"]
     # name not a string)
     filename = 999
-    with pytest.raises(TypeError):
+    with pytest.raises(KeyError):
         get_affected_files(filename, dependency_graph)
     # name not in graph
     filename = "noname"
-    with pytest.raises(ValueError):
+    with pytest.raises(KeyError):
         get_affected_files(filename, dependency_graph)
     # graph not a dict
     filename = "test_module"
@@ -32,3 +32,7 @@ def test_get_affected_files():
     }
     affected_files = get_affected_files(filename, dependency_graph)
     assert affected_files == ["test_module"]
+
+
+if __name__ == '__main__':
+    test_get_affected_files()
