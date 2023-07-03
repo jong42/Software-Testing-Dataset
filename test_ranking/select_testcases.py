@@ -1,6 +1,5 @@
 import subprocess
 from typing import Dict, List
-#from pydeps.pydeps import call_pydeps
 
 
 def create_dependency_graph(inpath:str, outpath:str) -> None:
@@ -10,7 +9,6 @@ def create_dependency_graph(inpath:str, outpath:str) -> None:
     :param outpath: string. The location where the output file should be written to
     :return:
     """
-    #call_pydeps(inpath, show_deps=True, no_output=True, deps_out=outpath, )
     subprocess.run(['pydeps', '--show_deps', '--no-output', '--deps-out ' + outpath])
 
 
