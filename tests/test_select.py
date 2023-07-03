@@ -1,5 +1,5 @@
 import pytest
-from Test-Prioritization.select import get_affected_files
+from test_ranking.select import get_affected_files
 
 
 def test_get_affected_files():

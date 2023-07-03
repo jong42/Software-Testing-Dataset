@@ -1,5 +1,5 @@
 import pytest
-from Test-Prioritization.prioritize_random import prioritize_random
+from test_ranking.prioritize_random import prioritize_random
 
 
 def test_prioritize_random():
