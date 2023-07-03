@@ -1,6 +1,6 @@
 import re
 import json
-from select import create_dependency_graph, get_affected_files
+from test_ranking.select_testcases import create_dependency_graph, get_affected_files
 from prioritize_random import prioritize_random
 
 codebase_path = "/home/jonas/Desktop/pydeps_local"
@@ -16,7 +16,7 @@ with open(commit_path, "r") as f:
     lines = f.readlines()
     lines = lines[6:-1]
     for line in lines:
-        filename = re.findall('/.+\.py',line)[0][1:]
+        filename = re.findall('/.+\.py',line)[0][1:-2]
         filenames.append(filename)
 
 
@@ -32,3 +32,4 @@ for filename in filenames:
     selected_tests = list(set(selected_tests))  # to remove duplicate entries
 
 ranked_tests = prioritize_random(selected_tests)
+print(ranked_tests)
