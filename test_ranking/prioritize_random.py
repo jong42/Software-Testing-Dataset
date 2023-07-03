@@ -1,6 +1,7 @@
 from typing import List
 import random
 
+
 def prioritize_random(Y:List[str])->List[str]:
     """
     Return a random ranking of a list of names

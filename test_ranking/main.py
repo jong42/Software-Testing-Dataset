@@ -7,6 +7,7 @@ codebase_path = "/home/jonas/Desktop/pydeps_local"
 commit_path = "commit.txt"
 graph_path = "dep_graph.json"
 
+
 create_dependency_graph(codebase_path, graph_path)
 
 # Extract filenames from commit
