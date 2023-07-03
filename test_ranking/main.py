@@ -4,8 +4,8 @@ from test_ranking.select_testcases import create_dependency_graph, get_affected_
 from prioritize_random import prioritize_random
 
 codebase_path = "/home/jonas/Desktop/pydeps_local"
-commit_path = "commit.txt"
-graph_path = "dep_graph.json"
+commit_path = "../commit.txt"
+graph_path = "../dep_graph.json"
 
 
 create_dependency_graph(codebase_path, graph_path)
@@ -16,7 +16,7 @@ with open(commit_path, "r") as f:
     lines = f.readlines()
     lines = lines[6:-1]
     for line in lines:
-        filename = re.findall('/.+\.py',line)[0][1:-2]
+        filename = re.findall('/.+\.py',line)[0][1:-3]
         filenames.append(filename)
 
 
