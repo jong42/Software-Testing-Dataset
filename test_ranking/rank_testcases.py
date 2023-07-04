@@ -1,4 +1,4 @@
-from tying import List, Dict
+from typing import List, Dict
 from radon.complexity import SCORE
 from radon.cli import Config
 from radon.visitors import Function
