@@ -22,4 +22,7 @@ Next steps
 
 Necessary:
 - Update dependency graph whenever a change is made
+- How much better is this really than just using the metrics?
+- Use more metrics as suggested by the authors of the paper
+- Add test history to training data
 
