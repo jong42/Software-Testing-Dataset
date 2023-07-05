@@ -1,5 +1,6 @@
 import os
 import shutil
+from typing import List
 import gitlab
 import subprocess
 
@@ -11,6 +12,13 @@ def list_projects():
     for project in projects:
         print(project)
 
+
+def get_project_urls()->List[str]:
+    """
+    Get a list of gitlab repos that use pytest
+    :return: list of strings
+    """
+    pass
 
 #clone those projects
 def clone_project(url:str, outdir:str):
@@ -28,13 +36,27 @@ def remove_project(dir:str):
 def execute_tests(path:str):
     subprocess.run(['pytest', path])
 
+def install_packages(path:str):
+    """
+    Creates a new conda environment, activates it and installs all packages from a requirements file
+    :param path: path to the requirements file
+    """
+    # create new conda env
+    subprocess.run(['conda', 'create', '--name', 'temp_env', 'python=3', '--yes'])
+    #switch to new conda env
+    subprocess.run(['conda', 'activate', 'temp_env'])
+    # install packages
+    subprocess.run(['pip', 'install', '-r', path])
+
 if __name__ == '__main__':
     #list_projects()
     url = 'https://gitlab.com/nicolas.bohorquez/flask-pytest-sample'
     path = '/home/jonas/Desktop/temp_repo'
+    requirements_path = os.path.join(path, 'requirements.txt')
     test_path = os.path.join(path, 'tests')
-    clone_project(url, path)
-    execute_tests(path)
+    #clone_project(url, path)
+    install_packages(requirements_path)
+    #execute_tests(path)
     #remove_project(path)
 
 
