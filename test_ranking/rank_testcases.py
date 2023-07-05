@@ -34,8 +34,10 @@ def get_static_features(filepaths:List[str])-> Dict:
             if isinstance(j, Function):  # only look at the functions, not at classes
                 cc_sum += j.complexity
                 cc_count += 1
-        try: avg_cc = cc_sum/cc_count
-        except: avg_cc = 'NaN'
+        try:
+            avg_cc = cc_sum/cc_count
+        except ZeroDivisionError:
+            avg_cc = 'NaN'
         results[i[0]]['avg_cc'] = avg_cc
     return results
 
