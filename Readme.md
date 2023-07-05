@@ -20,13 +20,10 @@ At first a dependency graph of the codebase is created that can be queried for w
 
 ## Next steps
 
-<<<<<<< HEAD
 Necessary:
 - Update dependency graph whenever a change is made
 - How much better is this really than just using the metrics?
 - Use more metrics as suggested by the authors of the paper
 - Add test history to training data
-=======
-Update dependency graph whenever a change is made
->>>>>>> cd91a2daf507c678b6d92c9618cc8b398b335148
+
 
