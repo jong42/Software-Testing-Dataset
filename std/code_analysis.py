@@ -42,8 +42,4 @@ def get_static_features(filepaths:List[str])-> Dict:
     return results
 
 
-if __name__ == "__main__":
-    paths = ['/home/jonas/Desktop/pydeps_local/pydeps_local/colors.py',
-             '/home/jonas/Desktop/pydeps_local/pydeps_local/cli.py']
-    print(get_static_features(paths))
 
