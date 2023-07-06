@@ -21,15 +21,16 @@ def list_files(directory_path: str) -> List[str]:
     return files
 
 
-def get_project_urls() -> Tuple[List[str], List[str]]:
+def get_project_urls(count:int=1000) -> Tuple[List[str], List[str]]:
     """
     Get a list of gitlab repos that use pytest
+    :param: count: integer. number of repos that should be searched
     :return: Tuple of two lists containing project names and project urls
     """
     project_urls = []
     project_names = []
     gl = gitlab.Gitlab()
-    projects = gl.projects.list(topic='pytest')
+    projects = gl.projects.list(page=1, per_page=count)
     for project in projects:
         project_names.append(project.name)
         project_urls.append(project.web_url)

@@ -9,7 +9,9 @@ df = []
 
 # Get names and urls of possible repos
 repo_names, repo_urls = get_project_urls()
-for repo_name, url in zip(repo_names, repo_urls):
+
+for i,(repo_name, url) in enumerate(zip(repo_names, repo_urls)):
+    print(i)
     # Clone repo
     try:
         clone_project(url, temp_repo_path)
@@ -21,15 +23,17 @@ for repo_name, url in zip(repo_names, repo_urls):
         # Get code metrics from repo, write them in a  dataframe
         code_metrics = get_static_features(files)
         for filename in code_metrics:
-            df.append([url,
-                filename,
-                code_metrics[filename]['loc'],
-                code_metrics[filename]['lloc'],
-                code_metrics[filename]['sloc'],
-                code_metrics[filename]['comments'],
-                code_metrics[filename]['multi'],
-                code_metrics[filename]['blank'],
-                code_metrics[filename]['avg_cc']])
+            try:
+                df.append([url,
+                    filename,
+                    code_metrics[filename]['loc'],
+                    code_metrics[filename]['lloc'],
+                    code_metrics[filename]['sloc'],
+                    code_metrics[filename]['comments'],
+                    code_metrics[filename]['multi'],
+                    code_metrics[filename]['blank'],
+                    code_metrics[filename]['avg_cc']])
+            except KeyError: pass
     except FileNotFoundError: pass
     # Delete repo
     if os.path.isdir(temp_repo_path):
