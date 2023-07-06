@@ -6,13 +6,13 @@ from rank_testcases import get_static_features
 temp_repo_path = '/home/jonas/Desktop/temp_repo'
 outpath = 'code_metrics.csv'
 df = []
-# Get urls of possible repos
-repo_urls = get_project_urls() # TODO: Write get_project_urls
+# Get names and urls of possible repos
+repo_names, repo_urls = get_project_urls()
 
-for url in repo_urls:
+for repo_name,url in zip(repo_names,repo_urls):
     # Clone repo
     clone_project(url, temp_repo_path)
-    codebase_path = os.path.join(temp_repo_path,repo_name) # TODO: get repo name
+    codebase_path = os.path.join(temp_repo_path,repo_name) 
     files = os.listdir(codebase_path)
     # Filter for python files
     files = [file for file in files if '.py' in file]
