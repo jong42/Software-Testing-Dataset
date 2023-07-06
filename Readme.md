@@ -3,7 +3,7 @@
 
 ## Introduction
 
-This project provides a dataset on code metrics of public gitlab repositories that use Python. It can serve as a start for a training dataset for Machine Learning approaches to prioritize test cases in software projects (see for example Bertolino et al 2020: Learning-to-Rank vs Ranking-to-Learn: Strategies for Regression Testing in Continuous Integration).
+This project provides a dataset on code metrics of public gitlab repositories that use Python. It can serve as a start for a training dataset for Machine Learning approaches to prioritize test cases in software projects (see for example Bertolino et al 2020: [Learning-to-Rank vs Ranking-to-Learn: Strategies for Regression Testing in Continuous Integration](https://dl.acm.org/doi/10.1145/3377811.3380369)).
 
 The following metrics are collected for each Python file in a project (excluding tests):
 - total number of lines of code (loc)
