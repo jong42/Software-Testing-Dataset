@@ -15,7 +15,6 @@ for repo_name,url in zip(repo_names,repo_urls):
     # Clone repo
     try:
         clone_project(url, temp_repo_path)
-        #codebase_path = os.path.join(temp_repo_path,repo_name)
         files = list_files(temp_repo_path)
         # Filter for python files
         files = [file for file in files if '.py' in file]
