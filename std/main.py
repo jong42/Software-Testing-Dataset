@@ -3,8 +3,8 @@ import pandas as pd
 from git_utils import list_files, get_project_urls, clone_project, remove_project
 from code_analysis import get_static_features
 
-temp_repo_path = '../temp_repo'
-outpath = '../code_metrics.csv'
+temp_repo_path = 'temp_repo'
+outpath = 'code_metrics.csv'
 df = []
 
 # Get names and urls of possible repos
@@ -19,8 +19,7 @@ for repo_name, url in zip(repo_names, repo_urls):
         # Exclude tests
         files = [file for file in files if 'test' not in file]
         # Get code metrics from repo, write them in a  dataframe
-        abs_filepaths = [os.path.join(temp_repo_path,file) for file in files]
-        code_metrics = get_static_features(abs_filepaths)
+        code_metrics = get_static_features(files)
         for filename in code_metrics:
             df.append([url,
                 filename,
