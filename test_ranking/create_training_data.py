@@ -4,6 +4,20 @@ from typing import List,Tuple
 import gitlab
 import subprocess
 
+def list_files(directory_path:str)->List[str]:
+    """
+    return all filenames of a directory and its subdirectories.
+    Taken from https://www.delftstack.com/howto/python/python-list-all-files-in-directory-and-subdirectories/
+    :param directory_path: directory within which to lost the filenames
+    :return: List of strings. The filenames
+    """
+    files = []
+    for entry in os.scandir(directory_path):
+        if entry.is_file():
+            files.append(entry.path)
+        elif entry.is_dir():
+            files.extend(list_files(entry.path))
+    return files
 
 def list_projects():
     gl = gitlab.Gitlab()
