@@ -44,4 +44,23 @@ def remove_project(dir:str) -> None:
     shutil.rmtree(dir)
 
 
+def execute_tests(path:str):
+    subprocess.run(['pytest', path])
+    
+    
+def install_packages(path:str):
+    """
+    Creates a new conda environment, activates it and installs all packages from a requirements file
+    :param path: path to the requirements file
+    """
+    # create new conda env
+    subprocess.run(['conda', 'create', '--name', 'temp_env', 'python=3', '--yes'])
+    #switch to new conda env
+    subprocess.run(['conda', 'activate', 'temp_env'])
+    # install packages
+    subprocess.run(['pip', 'install', '-r', path])
+    
 
+#TODO: Install necessary packages (maybe its also necessary to create new conda envs each time)
+#TODO: Extract failure yes/no (1. log the test message, 2. extract from the test message)
+#TODO: Make a subclass of project that can clone, run tests and delete the local clone
