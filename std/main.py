@@ -30,7 +30,6 @@ for repo_name, url in zip(repo_names, repo_urls):
                 code_metrics[filename]['comments'],
                 code_metrics[filename]['multi'],
                 code_metrics[filename]['blank'],
-                code_metrics[filename]['single_comments'],
                 code_metrics[filename]['avg_cc']])
     except FileNotFoundError: pass
     # Delete repo
@@ -46,6 +45,5 @@ df = pd.DataFrame(df, columns=['url',
                                'comments',
                                'multi',
                                'blank',
-                               'single_comments',
                                'avg_cc'])
 df.to_csv(outpath)
