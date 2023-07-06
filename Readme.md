@@ -22,7 +22,7 @@ To reproduce the dataset, execute the following steps:
 
 1. Create a new Python environment
 2. In that environment, run "pip install -r requirements.txt"
-3. In that environment, execute main.py
+3. In that environment, execute std/main.py
 
 
 ## Future work
