@@ -1,6 +1,6 @@
 import os
 import shutil
-from typing import List
+from typing import List,Tuple
 import gitlab
 import subprocess
 
@@ -13,12 +13,20 @@ def list_projects():
         print(project)
 
 
-def get_project_urls()->List[str]:
+def get_project_urls()->Tuple[List[str],List[str]]:
     """
     Get a list of gitlab repos that use pytest
-    :return: list of strings
+    :return: Tuple of two lists containing project names and project urls
     """
-    pass
+    project_urls=[]
+    project_names=[]
+    gl = gitlab.Gitlab()
+    projects = gl.projects.list(topic='pytest')
+    for project in projects:
+        project_names.append(project.name)
+        project_urls.append(project.web_url)
+    return project_names, project_urls
+
 
 #clone those projects
 def clone_project(url:str, outdir:str):
