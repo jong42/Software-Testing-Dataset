@@ -4,7 +4,7 @@ from create_training_data import list_files, get_project_urls, clone_project, re
 from rank_testcases import get_static_features
 
 temp_repo_path = '/home/jonas/Desktop/temp_repo'
-outpath = 'code_metrics.csv'
+outpath = '../code_metrics.csv'
 df = []
 # Get names and urls of possible repos
 repo_names, repo_urls = get_project_urls()
