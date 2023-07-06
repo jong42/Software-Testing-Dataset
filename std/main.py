@@ -4,7 +4,7 @@ from git_utils import list_files, get_project_urls, clone_project, remove_projec
 from code_analysis import get_static_features
 
 temp_repo_path = 'temp_repo'
-outpath = 'code_metrics.csv'
+outpath = 'dataset.csv'
 df = []
 
 # Get names and urls of possible repos
