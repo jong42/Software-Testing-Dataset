@@ -1,7 +1,7 @@
 import os
 import pandas as pd
-from create_training_data import list_files, get_project_urls, clone_project, remove_project
-from rank_testcases import get_static_features
+from git_utils import list_files, get_project_urls, clone_project, remove_project
+from code_analysis import get_static_features
 
 temp_repo_path = '/home/jonas/Desktop/temp_repo'
 outpath = '../code_metrics.csv'
